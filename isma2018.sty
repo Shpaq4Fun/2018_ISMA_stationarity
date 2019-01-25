@@ -1,0 +1,80 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  LaTeX-2e package file "isma2018.sty"                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}   %
+\ProvidesPackage{isma2018} %
+\RequirePackage{times}     %
+
+\setlength{\paperheight}     {297mm} %
+\setlength{\paperwidth}      {210mm} %
+\setlength{\textwidth}       {166mm} %
+\setlength{\hoffset}       {-3.04mm} %
+\setlength{\oddsidemargin}     {0mm} %
+\setlength{\voffset}         {4.6mm} %
+\setlength{\topmargin}         {0mm} %
+\setlength{\headheight}        {0mm} %
+\setlength{\headsep}           {0mm} %
+\setlength{\textheight}      {245mm} %
+\setlength{\parindent}         {0mm} %
+\setlength{\parskip} {5pt plus 2pt minus 1pt} %
+\pagestyle{empty}                    %
+
+\makeatletter
+\renewcommand\maketitle{\par
+  \begingroup
+    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+    \long\def\@makefntext##1{\parindent 1em\noindent
+            \hb@xt@1.8em{%
+                \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+    \@maketitle%
+    \thispagestyle{empty}\@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\def\@maketitle{%
+  \newpage
+  \null
+  \let \footnote \thanks
+  \noindent{\LARGE\sffamily\bfseries \@title \par
+  }%
+  \vskip 10mm%
+  \noindent{\normalsize \@author %\par
+  }%
+  \vskip 10mm%
+  {\Large \@date %\par
+  }%
+  \vskip 10mm}
+\renewcommand{\abstract}[1]
+  {\date{\flushleft\parbox[t]{\textwidth}{%
+         \textbf{\sffamily\Large Abstract}\\ \normalsize #1}
+        }%
+  }
+\renewcommand\thesection      {\@arabic\c@section}
+\renewcommand\thesubsection   {\thesection.\@arabic\c@subsection}
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                    {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                    {2.3ex \@plus.2ex}%
+                                    {\normalfont\Large\bfseries\sffamily}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries\sffamily}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries\sffamily}}
+\makeatother
+
